@@ -1,0 +1,11 @@
+type RichImage {
+    url: String
+}
+
+type RichProductImage implements MediaGalleryInterface @doc(description: "Contains product image information, including the image URL and label.") {
+    image: RichImage
+}
+
+interface ProductInterface {
+    image: RichProductImage @resolver(class: "Magento\\CatalogGraphQl\\Model\\Resolver\\Product\\ProductImage")
+}
