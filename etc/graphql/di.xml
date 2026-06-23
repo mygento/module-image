@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Mygento\Image\Model\Resolver\Product\Image" type="Mygento\Image\Model\Resolver\Common">
+        <arguments>
+            <argument name="type" xsi:type="string">product</argument>
+            <argument name="field" xsi:type="string">image</argument>
+            <argument name="entityType" xsi:type="string">RichProductImage</argument>
+            <argument name="srcPath" xsi:type="string">catalog/product</argument>
+            <argument name="outputPath" xsi:type="string">catalog/product/cache/rich</argument>
+            <argument name="width" xsi:type="number">700</argument>
+            <argument name="height" xsi:type="number">700</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Mygento\Image\Model\Resolver\Product\SmallImage" type="Mygento\Image\Model\Resolver\Common">
+        <arguments>
+            <argument name="type" xsi:type="string">product</argument>
+            <argument name="field" xsi:type="string">small_image</argument>
+            <argument name="entityType" xsi:type="string">RichProductImage</argument>
+            <argument name="srcPath" xsi:type="string">catalog/product</argument>
+            <argument name="outputPath" xsi:type="string">catalog/product/cache/rich</argument>
+            <argument name="width" xsi:type="number">240</argument>
+            <argument name="height" xsi:type="number">300</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Mygento\Image\Model\Resolver\Product\Gallery" type="Mygento\Image\Model\Resolver\Common">
+        <arguments>
+            <argument name="type" xsi:type="string">product</argument>
+            <argument name="field" xsi:type="string">file</argument>
+            <argument name="entityType" xsi:type="string">RichMediaGallery</argument>
+            <argument name="srcPath" xsi:type="string">catalog/product</argument>
+            <argument name="outputPath" xsi:type="string">catalog/product/cache/rich</argument>
+            <argument name="width" xsi:type="number">700</argument>
+            <argument name="height" xsi:type="number">700</argument>
+            <argument name="thumbnail" xsi:type="boolean">true</argument>
+            <argument name="thumbWidth" xsi:type="number">80</argument>
+            <argument name="thumbHeight" xsi:type="number">110</argument>
+        </arguments>
+    </virtualType>
+</config>

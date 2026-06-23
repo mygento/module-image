@@ -1,11 +1,35 @@
-type RichImage {
-    url: String
+interface RichImageInterface @typeResolver(class: "Mygento\\Image\\Model\\Resolver\\RichImageInterfaceType") {
+    width: Int!
+    height: Int!
+    default: ResponsiveRichImage!
+    avif: ResponsiveRichImage!
+    webp: ResponsiveRichImage!
+    thumbnail: RichImageInterface
 }
 
-type RichProductImage implements MediaGalleryInterface @doc(description: "Contains product image information, including the image URL and label.") {
-    image: RichImage
+type ResponsiveRichImage {
+    srcset: String!
+    url: String!
+    lqip: String
+}
+
+type RichMediaGallery implements RichImageInterface
+{
+}
+
+type RichProductImage implements RichImageInterface
+{
+}
+
+type RichImage implements RichImageInterface
+{
+}
+
+type ProductImage {
+    image: RichProductImage @resolver(class: "Mygento\\Image\\Model\\Resolver\\Product\\Gallery")
 }
 
 interface ProductInterface {
-    image: RichProductImage @resolver(class: "Magento\\CatalogGraphQl\\Model\\Resolver\\Product\\ProductImage")
+    image: RichProductImage @resolver(class: "Mygento\\Image\\Model\\Resolver\\Product\\Image")
+    small_image: RichProductImage @resolver(class: "Mygento\\Image\\Model\\Resolver\\Product\\SmallImage")
 }

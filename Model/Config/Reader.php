@@ -2,7 +2,7 @@
 
 /**
  * @author Mygento Team
- * @copyright 2023 Mygento (https://www.mygento.com)
+ * @copyright 2023-2026 Mygento (https://www.mygento.com)
  * @package Mygento_Image
  */
 
@@ -19,53 +19,39 @@ class Reader implements ReaderInterface
      */
     public function read($scope = null): array
     {
-        $config = [];
-        $config['RichImage']['fields']['2x'] = [
-            'name' => '2x',
-            'type' => 'String',
-            'arguments' => [],
-            'deprecated' => [],
-        ];
-        $config['RichImage']['fields']['3x'] = [
-            'name' => '3x',
-            'type' => 'String',
-            'arguments' => [],
-            'deprecated' => [],
-        ];
-        if (function_exists('imageavif')) {
-            $config['RichImage']['fields']['avif'] = [
-                'name' => 'avif',
-                'type' => 'String',
-                'arguments' => [],
-                'deprecated' => [],
-            ];
-        }
-        if (extension_loaded('imagick') && class_exists('Imagick') && \Imagick::queryFormats('AVIF')) {
-            $config['RichImage']['fields']['avif2'] = [
-                'name' => 'avif2',
-                'type' => 'String',
-                'arguments' => [],
-                'deprecated' => [],
-            ];
-        }
+        return [];
+        // if (function_exists('imageavif')) {
+        //     $config['RichImageInterface']['fields']['avif'] = [
+        //         'name' => 'avif',
+        //         'type' => 'String',
+        //         'arguments' => [],
+        //         'deprecated' => [],
+        //     ];
+        // }
+        // if (extension_loaded('imagick') && class_exists('Imagick') && \Imagick::queryFormats('AVIF')) {
+        //     $config['RichImageInterface']['fields']['avif2'] = [
+        //         'name' => 'avif2',
+        //         'type' => 'String',
+        //         'arguments' => [],
+        //         'deprecated' => [],
+        //     ];
+        // }
 
-        if (function_exists('imagewebp')) {
-            $config['RichImage']['fields']['webp'] = [
-                'name' => 'webp',
-                'type' => 'String',
-                'arguments' => [],
-                'deprecated' => [],
-            ];
-        }
-        if (extension_loaded('imagick') && class_exists('Imagick') && \Imagick::queryFormats('WEBP')) {
-            $config['RichImage']['fields']['webp2'] = [
-                'name' => 'webp2',
-                'type' => 'String',
-                'arguments' => [],
-                'deprecated' => [],
-            ];
-        }
-
-        return $config;
+        // if (function_exists('imagewebp')) {
+        //     $config['RichImageInterface']['fields']['webp'] = [
+        //         'name' => 'webp',
+        //         'type' => 'String',
+        //         'arguments' => [],
+        //         'deprecated' => [],
+        //     ];
+        // }
+        // if (extension_loaded('imagick') && class_exists('Imagick') && \Imagick::queryFormats('WEBP')) {
+        //     $config['RichImageInterface']['fields']['webp2'] = [
+        //         'name' => 'webp2',
+        //         'type' => 'String',
+        //         'arguments' => [],
+        //         'deprecated' => [],
+        //     ];
+        // }
     }
 }
