@@ -22,6 +22,17 @@
             <argument name="height" xsi:type="number">300</argument>
         </arguments>
     </virtualType>
+    <virtualType name="Mygento\Image\Model\Resolver\Product\Thumbnail" type="Mygento\Image\Model\Resolver\Common">
+        <arguments>
+            <argument name="type" xsi:type="string">product</argument>
+            <argument name="field" xsi:type="string">thumbnail</argument>
+            <argument name="entityType" xsi:type="string">RichProductImage</argument>
+            <argument name="srcPath" xsi:type="string">catalog/product</argument>
+            <argument name="outputPath" xsi:type="string">catalog/product/cache/rich</argument>
+            <argument name="width" xsi:type="number">150</argument>
+            <argument name="height" xsi:type="number">150</argument>
+        </arguments>
+    </virtualType>
     <virtualType name="Mygento\Image\Model\Resolver\Product\Gallery" type="Mygento\Image\Model\Resolver\Common">
         <arguments>
             <argument name="type" xsi:type="string">product</argument>
