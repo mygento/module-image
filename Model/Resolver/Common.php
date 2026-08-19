@@ -14,7 +14,7 @@ use Magento\Framework\GraphQl\Exception\GraphQlInputException;
 use Magento\Framework\GraphQl\Query\Resolver\ContextInterface;
 use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
-use Mygento\Image\Model\ImageProcessor;
+use Mygento\ImageCommon\Model\ImageProcessor;
 
 class Common implements ResolverInterface
 {
@@ -33,6 +33,7 @@ class Common implements ResolverInterface
         protected bool $thumbnail = false,
         protected ?int $thumbWidth = null,
         protected ?int $thumbHeight = null,
+        protected bool $lqip = false,
     ) {}
 
     /**
@@ -86,7 +87,7 @@ class Common implements ResolverInterface
             $value = $value[$key];
         }
 
-        return is_string($value) ? $value : null;
+        return is_string($value) ? ltrim($value, '/') : null;
     }
 
     private function process(array $result, array $fields, string $filepath, int $width, ?int $height = null): array
@@ -100,6 +101,7 @@ class Common implements ResolverInterface
                 outputDir: $this->outputPath,
                 width: $width,
                 height: $height,
+                lqip: $this->lqip,
             );
         }
         if (isset($fields['avif'])) {
@@ -110,6 +112,7 @@ class Common implements ResolverInterface
                 width: $width,
                 height: $height,
                 ext: 'avif',
+                lqip: $this->lqip,
             );
         }
         if (isset($fields['webp'])) {
@@ -120,6 +123,7 @@ class Common implements ResolverInterface
                 width: $width,
                 height: $height,
                 ext: 'webp',
+                lqip: $this->lqip,
             );
         }
 
